@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install -y \
 # Configuração do ambiente Python
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install Flask pytesseract opencv-python flask-cors
+RUN pip install opencv-python-headless --force-reinstall
 
 # Configuração do Tesseract OCR
 ENV TESSDATA_PREFIX /usr/share/tesseract-ocr/4.00/tessdata

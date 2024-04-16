@@ -1,38 +1,94 @@
-.App {
+/* App.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+input[type="file"],
+select,
+button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+
+.extracted-text {
+  margin-top: 20px;
+}
+
+.extracted-text h2 {
+  color: #007BFF;
+}
+
+.extracted-text p {
+  background-color: #F0F0F0;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #007BFF;
+}
+
+.footer {
+  margin-top: 50px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer h2 {
+  color: #007BFF;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer p {
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.team-photos {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.team-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px;
+  overflow: hidden;
+  border: 2px solid #007BFF;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

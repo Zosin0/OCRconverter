@@ -21,7 +21,6 @@ def ocr():
         return jsonify({'error': 'No image selected'}), 400
 
     try:
-
         # Ler a imagem e converter para um array numpy
         img_np = np.frombuffer(image.read(), np.uint8)
         img = cv2.imdecode(img_np, cv2.IMREAD_COLOR)
@@ -39,4 +38,4 @@ def ocr():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

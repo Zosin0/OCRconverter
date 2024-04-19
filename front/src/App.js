@@ -6,7 +6,7 @@ function App() {
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
   const [language, setLanguage] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // Definição de setError
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -22,13 +22,15 @@ function App() {
       formData.append('image', image);
       formData.append('language', language);
 
-      const response = await axios.post('http://localhost:5000/api/ocr', formData, {
+      const response = await axios.post('http://127.0.0.1:5000/api/ocr', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
       if (response.data && response.data.text) {
+        console.log(response.data.text);
+        console.log(response.data.text.trim());
         setText(response.data.text.trim());
       } else {
         setError('Resposta inválida do servidor');

@@ -21,6 +21,7 @@ def ocr():
         return jsonify({'error': 'No image selected'}), 400
 
     try:
+
         # Ler a imagem e converter para um array numpy
         img_np = np.frombuffer(image.read(), np.uint8)
         img = cv2.imdecode(img_np, cv2.IMREAD_COLOR)
@@ -29,7 +30,8 @@ def ocr():
         gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         text = pytesseract.image_to_string(gray_img, lang=language)
-
+        print(text)
+        
         if not text:
             return jsonify({'error': 'No text detected'}), 400
 
@@ -38,4 +40,4 @@ def ocr():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True)
